@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import dynamic from 'next/dynamic';
 
 // Define program IDs - use the exact string to avoid any parsing issues
-const PROGRAM_ID = new PublicKey("3aobcaoXeirkkssdrh5UZwvg2r9hg14RKW3vUqv3ZtYS");
+const PROGRAM_ID = new PublicKey("EwX6X4AbRYweZqCsRC6BopXJmxoBq5KmxyebdeRQ7qqs");
 const TOKEN_METADATA_PROGRAM_ID = new PublicKey("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s");
 
 const WalletMultiButtonDynamic = dynamic(
@@ -105,6 +105,7 @@ export default function Mint() {
         .accounts({
           signer: wallet.publicKey,
           mint: mintKeypair.publicKey,
+          mintAuthority: wallet.publicKey,
           associatedTokenAccount: associatedTokenAccount,
           metadataAccount: metadataAccount,
           masterEditionAccount: masterEditionAccount,
@@ -114,6 +115,7 @@ export default function Mint() {
           systemProgram: anchor.web3.SystemProgram.programId,
           rent: anchor.web3.SYSVAR_RENT_PUBKEY,
         })
+        .signers([mintKeypair])
         .instruction();
 
       // Create transaction

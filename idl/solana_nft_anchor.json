@@ -16,6 +16,11 @@
           "isSigner": true
         },
         {
+          "name": "mintAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "associatedTokenAccount",
           "isMut": true,
           "isSigner": false
@@ -23,10 +28,7 @@
         {
           "name": "metadataAccount",
           "isMut": true,
-          "isSigner": false,
-          "docs": [
-            "CHECK - address"
-          ]
+          "isSigner": false
         },
         {
           "name": "masterEditionAccount",
@@ -76,6 +78,6 @@
     }
   ],
   "metadata": {
-    "address": "3aobcaoXeirkkssdrh5UZwvg2r9hg14RKW3vUqv3ZtYS"
+    "address": "EwX6X4AbRYweZqCsRC6BopXJmxoBq5KmxyebdeRQ7qqs"
   }
 }
